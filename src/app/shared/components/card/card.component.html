@@ -6,6 +6,6 @@
     <div class="card-body">
         <h5 class="card-title">{{film?.title}}</h5>
         <p class="card-text">{{film?.director}}</p>
-        <div *ngFor="let actor of actors">{{actor}}</div>
+        <div *ngFor="let actor of film.actors">{{actor}}</div>
     </div>
 </div>

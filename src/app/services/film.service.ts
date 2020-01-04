@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FilmService {
   films: FilmInterface[];
-  readonly URL_API = 'http://localhost:3000/films';
+  readonly URL_API = 'http://localhost:5000/';
 
 
   constructor(private http: HttpClient) {
@@ -17,7 +17,10 @@ export class FilmService {
   }
 
   getFilms() {
-    return this.http.get(this.URL_API);
+    console.log('estoy en getFilms');
+    const data = this.http.get(this.URL_API);
+    console.log(data);
+    return data;
   }
   getFilmById(_id: string) {
     return this.http.get(`${this.URL_API}/${_id}`);

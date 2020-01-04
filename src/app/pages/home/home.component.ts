@@ -14,11 +14,12 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private filmService: FilmService) {
-    console.log('estoy en constructor del home component')
+
    }
 
   ngOnInit() {
-    this.filmService.getFilms().subscribe(data =>  this.films = data);
+    this.filmService.getFilms().subscribe(data => this.films = data);
+    //TODO: convertir objeto this.films en array
   }
 
 }
