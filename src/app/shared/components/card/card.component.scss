@@ -1,0 +1,15 @@
+@import "./src/sass/_variables.scss";
+@import "./src/sass/_mixins.scss";
+@import "./src/sass/_style2.scss";
+@import "./src/sass/_media.scss";
+.filmCard {
+    @include shadow;
+    max-width: 30% !important;
+    padding: 2vw;
+    margin-left: 2.5vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .div {
+        padding: 0.5vw;
+    }
+}

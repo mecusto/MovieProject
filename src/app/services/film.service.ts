@@ -1,26 +1,30 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+  })
+};
 import { FilmInterface } from 'src/app/filmInterface';
-import { HttpClient } from '@angular/common/http';
 
+import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilmService {
   films: FilmInterface[];
-  readonly URL_API = 'http://localhost:5000/';
+  readonly URL_API = 'http://localhost:5000';
 
 
   constructor(private http: HttpClient) {
     console.log('servicio film creado');
   }
 
-  getFilms() {
+  getFilms(): Observable<any> {
     console.log('estoy en getFilms');
-    const data = this.http.get(this.URL_API);
-    console.log(data);
-    return data;
+    return this.http.get(this.URL_API, httpOptions).pipe(map(res => res));
   }
   getFilmById(_id: string) {
     return this.http.get(`${this.URL_API}/${_id}`);

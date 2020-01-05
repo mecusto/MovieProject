@@ -1,0 +1,23 @@
+@mixin textos {}
+
+@mixin shadow {
+    -webkit-box-shadow: 9px 14px 10px 3px rgba(0, 0, 0, 0.36) !important;
+    -moz-box-shadow: 9px 14px 10px 3px rgba(0, 0, 0, 0.36) !important;
+    box-shadow: 9px 14px 10px 3px rgba(0, 0, 0, 0.36) !important;
+    border-radius: 10px;
+}
+
+@mixin links {
+    a:active {
+        color: $color2;
+        text-decoration: none
+    }
+    a:visited {
+        color: $color1;
+        text-decoration: none
+    }
+    a:hover {
+        color: $color2;
+        text-decoration: underline
+    }
+}

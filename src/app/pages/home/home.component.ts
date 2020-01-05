@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
   title: 'Films';
-  films: any;
+  films: FilmInterface[];
 
 
   constructor(private filmService: FilmService) {
@@ -18,8 +18,10 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.filmService.getFilms().subscribe(data => this.films = data);
-    //TODO: convertir objeto this.films en array
+    this.filmService.getFilms().subscribe(data => {
+      this.films = [];
+      data.results.forEach((x: FilmInterface) => this.films.push(x));
+    });
   }
 
 }
