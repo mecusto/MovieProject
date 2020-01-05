@@ -4,4 +4,5 @@
  @import "./src/sass/_media.scss";
  .pelis {
      @include textos;
+     display: inline-block;
  }

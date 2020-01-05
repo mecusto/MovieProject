@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div *ngFor="let film of films ; let i=index" class="col-md-4 pelis">
-            <div *ngIf="i < 20">
+        <div *ngFor="let film of films ; let i=index" class="col-sm-4 pelis">
+            <div *ngIf="i < 20" class="pelis">
                 <app-card [film]='film'></app-card>
             </div>
         </div>
