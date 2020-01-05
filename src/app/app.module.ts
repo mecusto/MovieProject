@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FilmService } from './services/film.service';
 import { CardComponent } from './shared/components/card/card.component';
 import { UsersComponent } from './pages/users/users.component';
+import { UsercardComponent } from './shared/components/usercard/usercard.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { UsersComponent } from './pages/users/users.component';
     AppComponent,
     HomeComponent,
     CardComponent,
-    UsersComponent
+    UsersComponent,
+    UsercardComponent
   ],
   imports: [
     BrowserModule,
