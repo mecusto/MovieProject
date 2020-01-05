@@ -1,7 +1,13 @@
+<!-- TODO botones para paginación
+    <div class='btn-group'>
+    <button type='button' class='btn btn-default' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
+    <button type='button' class='btn btn-default' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
+    <button type='button' class='btn btn-default' ng-disabled='currentPage >= usuarios.length/pageSize - 1' , ng-click='currentPage = currentPage + 1'>&raquo;</button>
+  </div> -->
 <div class="container-fluid">
     <div class="row">
         <div *ngFor="let film of films ; let i=index" class="col-sm-4 pelis">
-            <div *ngIf="i < 20" class="pelis">
+            <div *ngIf="i < 21" class="pelis">
                 <app-card [film]='film'></app-card>
             </div>
         </div>

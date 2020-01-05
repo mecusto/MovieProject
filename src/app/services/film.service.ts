@@ -9,12 +9,15 @@ import { FilmInterface } from 'src/app/filmInterface';
 
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { JsonPipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilmService {
   films: FilmInterface[];
+  type: string;
+  searchData: string;
   readonly URL_API = 'http://localhost:5000';
 
 
@@ -26,19 +29,37 @@ export class FilmService {
     console.log('estoy en getFilms');
     return this.http.get(this.URL_API, httpOptions).pipe(map(res => res));
   }
+
+
+  // tslint:disable-next-line: variable-name
   getFilmById(_id: string) {
-    return this.http.get(`${this.URL_API}/${_id}`);
-  }
-​
-  postFilm(film: FilmInterface) {
-    return this.http.post(this.URL_API + '/addfilm', film);
+    return this.http.get(`${this.URL_API}/:${_id}`);
   }
 
-  putFilm(film: FilmInterface) {
-    return this.http.put(`${this.URL_API}/${film._id}`, film);
+  // tslint:disable-next-line: variable-name
+  addFilmtoUserbyId(_id: string, user) {
+    return this.http.post(`${this.URL_API}'/addfilmtouser/':${_id}`, user);
+  }
+
+  searchFilm(type: string, searchData: string) {
+      this.type = type;
+      this.searchData = searchData;
+      console.log(`${this.URL_API}/search/:${this.type}`);
+      return this.http.get(`${this.URL_API}/search/${this.type}&${this.searchData}`, httpOptions);
   }
 ​
-  deleteFilm(_id: string) {
-    return this.http.delete(`${this.URL_API}/delete/${_id}`);
-  }
-}
+
+
+// TODO
+//   postFilm(film: FilmInterface) {
+//     return this.http.post(this.URL_API + '/addfilm', film);
+//   }
+
+//   putFilm(film: FilmInterface) {
+//     return this.http.put(`${this.URL_API}/:${film._id}`, film);
+//   }
+// ​
+//   deleteFilm(_id: string) {
+//     return this.http.delete(`${this.URL_API}/delete/${_id}`);
+//   }
+ }

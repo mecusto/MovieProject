@@ -1,0 +1,18 @@
+<form #search="ngForm" (ngSubmit)="onClickSubmit(search.value)">
+    <select class="custom-select" name="type" ngModel>
+        <option selected>Select search criteria</option>
+        <option value="title">title</option>
+        <option value="year">year</option>
+        <option value="countries">countries</option>
+        <option value="genres">genres</option>
+        <option value="director">director</option>
+        <option value="writers">writers</option>
+        <option value="actors">actors</option>
+        <option value="awards">awards</option>
+        <option value="nominations">nominations</option>
+    </select>
+
+    <input type="text" class="form-control" placeholder="Search for" name="searchData" ngModel>
+
+    <input type="submit" value="submit">
+</form>
