@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
   title: 'Films';
   films: FilmInterface[];
-
+  page = 0;
 
   constructor(private filmService: FilmService) {
 

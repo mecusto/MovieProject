@@ -4,12 +4,12 @@
 @import "./src/sass/_media.scss";
 .filmCard {
     @include shadow;
-    max-width: 30% !important;
+    width: 20%;
     padding: 2vw;
     margin-left: 2.5vw;
     margin-top: 20px;
     margin-bottom: 20px;
     .div {
-        padding: 0.5vw;
+        padding-left: 1vw;
     }
 }
