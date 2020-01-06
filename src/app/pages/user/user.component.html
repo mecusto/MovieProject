@@ -1,2 +1,5 @@
-<app-usercard [user]="this.user"></app-usercard>
+<div *ngIf="userOk === true">
+    <app-usercard [user]='user'></app-usercard>
+</div>
+
 <app-search-form></app-search-form>

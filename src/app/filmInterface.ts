@@ -19,6 +19,5 @@ export interface FilmInterface  {
     userReviews: number;
     metacritic: number;
     awards: object;
-    nominations: object;
     type: string;
   }

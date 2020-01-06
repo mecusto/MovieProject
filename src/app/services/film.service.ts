@@ -37,15 +37,14 @@ export class FilmService {
   }
 
   // tslint:disable-next-line: variable-name
-  addFilmtoUserbyId(_id: string, user) {
+  addFilmtoUserbyId(_id: string, user): Observable<any> {
     return this.http.post(`${this.URL_API}'/addfilmtouser/':${_id}`, user);
   }
 
-  searchFilm(type: string, searchData: string) {
+  searchFilm(type: string, searchData: string): Observable<any> {
       this.type = type;
       this.searchData = searchData;
-      console.log(`${this.URL_API}/search/:${this.type}`);
-      return this.http.get(`${this.URL_API}/search/${this.type}&${this.searchData}`, httpOptions);
+      return this.http.post(`${this.URL_API}/search/`, { type, searchData }, httpOptions);
   }
 ​
 

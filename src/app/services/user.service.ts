@@ -6,6 +6,7 @@ const httpOptions = {
   })
 };
 import { UserInterface } from 'src/app/userInterface';
+import { FilmInterface } from 'src/app/filmInterface';
 
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -16,6 +17,7 @@ import { JsonPipe } from '@angular/common';
 })
 export class UserService {
   users: UserInterface[];
+  film: FilmInterface;
   readonly URL_API = 'http://localhost:5000/users';
   readonly URL_API_USER = 'http://localhost:5000/user';
 
@@ -36,12 +38,13 @@ export class UserService {
   }
 
 ​
-  postFilm(user: UserInterface) {
-    return this.http.post(this.URL_API_USER + '/addfilm', user);
+  // tslint:disable-next-line: variable-name
+  postFilm(film: FilmInterface, _id: string): Observable<any> {
+    return this.http.post(`${this.URL_API_USER}/update/${_id}`, film, httpOptions);
   }
 
 
-  //No reconoce el id??
+  // No reconoce el id??
   // putFilm(user: UserInterface) {
   //   return this.http.put(`${this.URL_API}/${user._id}`, user);
   // }

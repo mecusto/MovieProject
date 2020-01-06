@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FilmInterface } from 'src/app/filmInterface';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { FilmService } from 'src/app/services/film.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search-form',
@@ -11,6 +12,8 @@ import { FilmService } from 'src/app/services/film.service';
 export class SearchFormComponent implements OnInit {
   angForm: FormGroup;
   title: 'Search Form';
+  films: FilmInterface[];
+  searchFinish: boolean;
 
   constructor(private fb: FormBuilder,
               private filmService: FilmService) {
@@ -25,13 +28,19 @@ export class SearchFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.searchFinish = false;
   }
 
   onClickSubmit(searchValue) {
     const { type, searchData } = searchValue;
-    console.log('onclicksubmit ' + type + searchData);
-    this.filmService.searchFilm(type, searchData);
-    alert('Searching');
+
+    this.filmService.searchFilm(type, searchData).subscribe(res => {
+      console.log(res);
+      this.films = [];
+      res.results.forEach((x: FilmInterface) => this.films.push(x));
+      console.log(this.films);
+      this.searchFinish = true;
+    });
  }
 
 }

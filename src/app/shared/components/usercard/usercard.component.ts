@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {UserInterface} from '../../../userInterface';
+import { FilmInterface } from '../../../filmInterface';
+import { UserInterface } from 'src/app/userInterface';
+import { UserService } from 'src/app/services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-usercard',
@@ -11,7 +14,7 @@ export class UsercardComponent implements OnInit {
   @Input()
   user: UserInterface;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }

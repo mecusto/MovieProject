@@ -5,4 +5,5 @@ export interface UserInterface {
     email: string;
     gender: string;
     password: string;
+    filmography: string[];
 }

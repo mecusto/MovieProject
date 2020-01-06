@@ -16,3 +16,13 @@
 
     <input type="submit" value="submit">
 </form>
+
+<div class="container-fluid">
+    <div class="row">
+        <div *ngIf="searchFinish === true">
+            <div *ngFor="let film of films" class="col-sm-4 pelis">
+                <app-card [film]='film'></app-card>
+            </div>
+        </div>
+    </div>
+</div>
