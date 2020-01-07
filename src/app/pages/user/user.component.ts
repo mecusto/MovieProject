@@ -14,20 +14,23 @@ import { Observable } from 'rxjs';
 })
 export class UserComponent implements OnInit {
   title: 'User';
-  user: UserInterface;
+  public user: UserInterface;
   userOk: boolean;
   // tslint:disable-next-line: variable-name
   _id: string;
-  films: FilmInterface[];
+  userFilms: FilmInterface[];
   constructor(private userService: UserService,
               private rutaActiva: ActivatedRoute) {}
 // Se cargan de inicio los datos del usuario por el id que se pasa por parmas
   ngOnInit() {
     this._id = this.rutaActiva.snapshot.params._id;
     this.userService.getUserById(this._id).subscribe(data => {
-      this.user = data;
+      this.user = data.results;
       console.log(this.user);
       this.userOk = true;
     });
+  }
+  getFilms(){
+    //TODO buscar en la base de datos films las películas de la filmeteca de usuario
   }
 }
