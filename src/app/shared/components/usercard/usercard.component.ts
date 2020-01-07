@@ -14,9 +14,17 @@ export class UsercardComponent implements OnInit {
   @Input()
   user: UserInterface;
 
+  public dynamicParameter: string;
+
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+
   }
+  // tslint:disable-next-line: use-lifecycle-interface
+  // ngOnChanges() {
+  //   this.dynamicParameter = this.user._id;
+  // }
 
 }

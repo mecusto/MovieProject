@@ -3,12 +3,15 @@
     <div class="card-body">
         <h3 class="card-title">{{film?.title}}</h3>
         <p class="card-text">{{film?.genres}}</p>
+        <p class="card-text">{{film?.countries}}</p>
+        <p class="card-text">{{film?.year}}</p>
         <p class="card-text">Director: {{film?.director}}</p>
         <p>Writers: </p>
         <div *ngFor="let writer of film.writers">{{writer}}</div>
         <p>Cast: </p>
         <div *ngFor="let actor of film.actors">{{actor}}</div>
         <p class="card-text">{{film?.plot}}</p>
+        <div>{{film?.awards}}</div>
         <button (click)="onClickSubmit()">Add to user filmography</button>
     </div>
 </div>

@@ -4,5 +4,7 @@
         <p class="card-text">Apellido: {{user?.last_name}}</p>
         <p class="card-text">Email: {{user?.email}}</p>
         <!-- TODO incluir lista de películas -->
+
+        <a class="nav-link" routerLink='/user/{{user?._id}}' routerLinkActive='active'><button>Go to User</button></a>
     </div>
 </div>
