@@ -13,6 +13,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { UsercardComponent } from './shared/components/usercard/usercard.component';
 import { UserComponent } from './pages/user/user.component';
 import { SearchFormComponent } from './shared/components/search-form/search-form.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SearchFormComponent } from './shared/components/search-form/search-form
     UsersComponent,
     UsercardComponent,
     UserComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

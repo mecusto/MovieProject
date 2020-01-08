@@ -14,11 +14,11 @@ import { Observable } from 'rxjs';
 })
 export class UserComponent implements OnInit {
   title: 'User';
-  user: UserInterface;
+  public user: UserInterface;
   userOk: boolean;
   // tslint:disable-next-line: variable-name
   _id: string;
-  films: FilmInterface[];
+  userFilms: FilmInterface[];
   constructor(private userService: UserService,
               private rutaActiva: ActivatedRoute) {}
 // Se cargan de inicio los datos del usuario por el id que se pasa por params
@@ -28,5 +28,8 @@ export class UserComponent implements OnInit {
     this.user = data.user[0];
     this.userOk = true;
     });
+  }
+  getFilms(){
+    //TODO buscar en la base de datos films las películas de la filmeteca de usuario
   }
 }
