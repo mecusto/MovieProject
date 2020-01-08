@@ -21,13 +21,12 @@ export class UserComponent implements OnInit {
   films: FilmInterface[];
   constructor(private userService: UserService,
               private rutaActiva: ActivatedRoute) {}
-// Se cargan de inicio los datos del usuario por el id que se pasa por parmas
+// Se cargan de inicio los datos del usuario por el id que se pasa por params
   ngOnInit() {
     this._id = this.rutaActiva.snapshot.params._id;
     this.userService.getUserById(this._id).subscribe(data => {
-      this.user = data;
-      console.log(this.user);
-      this.userOk = true;
+    this.user = data.user[0];
+    this.userOk = true;
     });
   }
 }
