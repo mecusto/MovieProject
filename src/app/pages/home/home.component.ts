@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
    }
 // Se hace una query con todas las películas
-// TODO limitar la query al numero de películas que se cargarán, hacer 
+// TODO limitar la query al numero de películas que se cargarán, hacer
 // junto a paginación
   ngOnInit() {
     this.filmService.getFilms().subscribe(data => {

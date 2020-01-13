@@ -11,7 +11,8 @@
         <p>Cast: </p>
         <div *ngFor="let actor of film.actors">{{actor}}</div>
         <p class="card-text">{{film?.plot}}</p>
-        <div>{{film?.awards}}</div>
+        <div>Awards wins: {{film?.awards.win}}</div>
+        <div>Awards nominations:{{film?.awards.nominations}}</div>
         <button (click)="onClickSubmit()">Add to user filmography</button>
     </div>
 </div>

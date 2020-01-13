@@ -14,6 +14,7 @@ import { JsonPipe } from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
+
 export class FilmService {
   films: FilmInterface[];
   type: string;
@@ -25,15 +26,15 @@ export class FilmService {
     console.log('servicio film creado');
   }
 
-  getFilms(): Observable<any> {
+  getFilms(): Observable<FilmInterface[]> {
     console.log('estoy en getFilms');
-    return this.http.get(this.URL_API, httpOptions).pipe(map(res => res));
+    return this.http.get<FilmInterface[]>(this.URL_API, httpOptions).pipe(map(res => res));
   }
 
 
   // tslint:disable-next-line: variable-name
-  getFilmById(_id: string) {
-    return this.http.get(`${this.URL_API}/:${_id}`);
+  getFilmById(_id: string): Observable<FilmInterface[]>  {
+    return this.http.get<FilmInterface[]>(`${this.URL_API}/:${_id}`);
   }
 
   // tslint:disable-next-line: variable-name
@@ -44,7 +45,7 @@ export class FilmService {
   searchFilm(type: string, searchData: string): Observable<any> {
       this.type = type;
       this.searchData = searchData;
-      return this.http.post(`${this.URL_API}/search/`, { type, searchData }, httpOptions);
+      return this.http.post<FilmInterface>(`${this.URL_API}/search/`, { type, searchData }, httpOptions);
   }
 ​
 

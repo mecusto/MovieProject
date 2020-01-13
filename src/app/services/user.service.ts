@@ -26,15 +26,15 @@ export class UserService {
     console.log('servicio user creado');
   }
 
-  getUsers(): Observable<any> {
+  getUsers(): Observable<UserInterface[]> {
     console.log('estoy en getUsers');
-    return this.http.get(this.URL_API, httpOptions).pipe(map(res => res));
+    return this.http.get<UserInterface[]>(this.URL_API, httpOptions).pipe(map(res => res));
   }
 
   // tslint:disable-next-line: variable-name
-  getUserById(_id: string): Observable<any> {
+  getUserById(_id: string): Observable<UserInterface> {
     console.log('estoy en getuserbyid');
-    return this.http.get(`${this.URL_API_USER}/${_id}`, httpOptions);
+    return this.http.get<UserInterface>(`${this.URL_API_USER}/${_id}`, httpOptions);
   }
 
 ​

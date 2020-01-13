@@ -18,6 +18,12 @@ export interface FilmInterface  {
     userRating: number;
     userReviews: number;
     metacritic: number;
-    awards: object;
+    awards: Awards;
     type: string;
+  }
+
+export interface Awards {
+    win: number;
+    nominations: number;
+    text: string;
   }
